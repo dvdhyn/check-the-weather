@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <title>Check the Weather</title>
     </head>
     <body>
@@ -13,27 +15,27 @@
         </header>
         <section id="citySearch">
             <h2>Search for a City:</h2>
-            <div class="ui-widget">
-                <label for="tags">Tags: </label>
-                <input id="tags">
+            <div class="autoComplete">
+                <input type="text" id="tags">
+                <input type="submit" id="searchButton">
             </div>
             <ul id="searchHistory"></ul>
         </section>
         <section>
-            <div id="currenntWeather">
+            <div id="currentWeather">
                 <h2>Test</h2>
                 <p>test</p>
                 <p>test</p>
                 <p>test</p>
             </div>
             <div id="fiveDayForecast">
+                <p id="cityName"></p>
             </div>
         </section>
     </body>
     <footer>
     
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
     <script src="./assets/js/script.js"></script>
 </html>
