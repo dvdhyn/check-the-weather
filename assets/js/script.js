@@ -103,9 +103,10 @@ $(function () {
         var humidity = data.main.humidity;
         var windSpeed = data.wind.speed;
         var date = new Date(data.dt * 1000);
+        var formattedDate = date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         var iconCode = data.weather[0].icon;
         var iconUrl = "https://openweathermap.org/img/wn/" + iconCode + ".png";
-        currentWeather.html("<h2>" + data.name + "</h2><p>Date: " + date.toLocaleString() + "</p><p>Temperature: " + temperatureFahrenheit + "°F</p><p>Humidity: " + humidity + "%</p><p>Wind Speed: " + windSpeed + " m/s</p><img src='" + iconUrl + "' alt='Weather Icon'>");
+        currentWeather.html("<h2>" + data.name + "</h2><p class='foreDate'>" + formattedDate + "</p><p>Temperature: " + temperatureFahrenheit + "°F</p><p>Humidity: " + humidity + "%</p><p>Wind Speed: " + windSpeed + " m/s</p><img src='" + iconUrl + "' alt='Weather Icon'>");
     }
 
     // *same input as above* specific city weather 5-day forecast populates after search
@@ -113,12 +114,13 @@ $(function () {
         fiveDay.html("<h2>5-Day Forecast</h2>");
         for (var i = 0; i < data.list.length; i += 8) {
         var date = new Date(data.list[i].dt * 1000);
+        var formattedDate = date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); 
         var temperatureFahrenheit = ((data.list[i].main.temp - 273.15) * 9/5 + 32).toFixed(2);
         var humidity = data.list[i].main.humidity;
         var windSpeed = data.list[i].wind.speed;
         var iconCode = data.list[i].weather[0].icon;
         var iconUrl = "https://openweathermap.org/img/wn/" + iconCode + ".png";
-        fiveDay.append("<p>Date: " + date.toLocaleString() + "</p><p>Temperature: " + temperatureFahrenheit + "°F</p><p>Humidity: " + humidity + "%</p><p>Wind Speed: " + windSpeed + " m/s</p><img src='" + iconUrl + "' alt='Weather Icon'>");
+        fiveDay.append("<p class='foreDate'>" + formattedDate + "</p><p>Temperature: " + temperatureFahrenheit + "°F</p><p>Humidity: " + humidity + "%</p><p>Wind Speed: " + windSpeed + " m/s</p><img src='" + iconUrl + "' alt='Weather Icon'>");
         }
     }
 
