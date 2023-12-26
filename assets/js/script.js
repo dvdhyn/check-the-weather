@@ -128,14 +128,14 @@ $(function () {
     // https://openweathermap.org/forecast5
     function getWeatherData(cityName) {
         var apiKey = "c210bbf2db0943be0d70f18df70a36b2";
-        var geoCodingURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=" + apiKey;
+        var geoCodingURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=" + apiKey;
         $.ajax({
             url: geoCodingURL,
             method: "GET"
         }).then(function (geoData) {
             var lat = geoData[0].lat;
             var lon = geoData[0].lon;
-            var currentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+            var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
         $.ajax({
             url: currentWeatherURL,
